@@ -1,3 +1,9 @@
+
+
+import { UserService } from './user.service';
+import { CreateUserDto } from './dto/create-user.fto';
+import { ConfirmEmailDto } from './dto/confirmEmail.dto'
+import { User } from './schemas/user.schema';
 import {
   Controller,
   Get,
@@ -6,48 +12,53 @@ import {
   Patch,
   Param,
   Delete,
-  UseGuards,
-  Req,
+  HttpException,
+  NotFoundException,
 } from "@nestjs/common";
-import { UserService } from "./user.service";
-import { CreateUserDto } from "./dto/create-user.dto";
-import { UpdateUserDto } from "./dto/update-user.dto";
-import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guards";
-import { Request } from "express";
+import { Req,Res} from '@nestjs/common';
+import { HttpStatus } from '@nestjs/common/enums';
+import { JwtService } from '@nestjs/jwt'
 
-@Controller("user")
+
+@Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService,
+  ) { }
+    
 
-  @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
+  // send email
+  @Post('/create')
+  async addUser(@Res() res, @Body() createUserDTO: CreateUserDto): Promise<User> {
+    if (await this.userService.doesUserExists(createUserDTO)) {
+      return res.status(HttpStatus.CONFLICT).json({
+        message: "User already exists"
+      })
+    }
+    await this.userService.sendVerificationLink(createUserDTO.email, createUserDTO.firstName, createUserDTO.lastName, createUserDTO.password);
+    return res.status(HttpStatus.OK).json({
+      message: "Email has been sent, kindly activate your account "
+    });
   }
 
-  @Get()
-  findAll() {
-    return this.userService.findAll();
+
+  //create user 
+  @Post('/signup')
+
+  async register(@Res() res, @Body() ConfirmEmailDto: ConfirmEmailDto): Promise<User> {
+    
+    await this.userService.decodeConfirmationToken(ConfirmEmailDto.token);
+
+      return res.status(HttpStatus.CREATED).json({
+        message: "Confirmed "
+      })
+  
+  
+    }
+    
   }
 
-  @Get(":id")
-  findOne(@Param("id") id: string) {
-    return null;
-  }
 
-  @Patch(":id")
-  update(@Param("id") id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.userService.update(+id, updateUserDto);
-  }
 
-  @Delete(":id")
-  remove(@Param("id") id: string) {
-    return this.userService.remove(+id);
-  }
 
-  // @UseGuards(JwtAuthGuard)
-  // @Get("/me")
-  // me(@Req() req: Request) {
-  //   const userEmail = req.user["email"];
-  //   return this.userService.findByEmail(userEmail);
-  // }
-}
+  
+  
