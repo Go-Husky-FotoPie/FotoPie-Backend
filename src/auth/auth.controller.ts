@@ -11,7 +11,7 @@ import { LoginUserDto } from "./dto/login-user.dto";
 import { Tokens } from "./types/tokens.type";
 import { Request } from "express";
 import { AuthService } from "./auth.service";
-import { JwtAuthGuard } from "./guards/jwt-auth.guards";
+import { JwtAuthGuard } from "../common/guards/jwt-auth.guards";
 import { ApiTags } from "@nestjs/swagger";
 
 @ApiTags("Auth")

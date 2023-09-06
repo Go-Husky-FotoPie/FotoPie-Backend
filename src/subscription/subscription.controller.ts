@@ -11,7 +11,7 @@ import {
 } from "@nestjs/common";
 import { SubscriptionService } from "./subscription.service";
 import { Stripe } from "stripe";
-import { JwtAuthGuard } from "../auth/guards/jwt-auth.guards";
+import { JwtAuthGuard } from "../common/guards/jwt-auth.guards";
 import { UseGuards } from "@nestjs/common/decorators";
 import mongoose from "mongoose";
 import { ConfigService } from "@nestjs/config";

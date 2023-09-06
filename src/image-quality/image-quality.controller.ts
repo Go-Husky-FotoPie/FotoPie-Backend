@@ -11,7 +11,7 @@ import { UseGuards } from "@nestjs/common/decorators";
 import { ImageQualityDto } from "./dto/image-quality.dto";
 import { QualityService } from "./image-quality.service";
 import { Quality, QualityDocument } from "./schema/image-quality.schema";
-import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guards";
+import { JwtAuthGuard } from "src/common/guards/jwt-auth.guards";
 import { Query } from "@nestjs/common/decorators";
 import { Query as ExpressQuery } from "express-serve-static-core";
 import { ApiTags } from "@nestjs/swagger";

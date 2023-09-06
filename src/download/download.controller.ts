@@ -7,7 +7,7 @@ import {
   Req,
 } from "@nestjs/common";
 import { DownloadService } from "./download.service";
-import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guards";
+import { JwtAuthGuard } from "src/common/guards/jwt-auth.guards";
 import { UseGuards } from "@nestjs/common/decorators";
 import { ApiTags } from "@nestjs/swagger";
 

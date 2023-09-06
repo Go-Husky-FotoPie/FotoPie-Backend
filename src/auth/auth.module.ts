@@ -2,8 +2,8 @@ import { Module } from "@nestjs/common";
 import { UserModule } from "src/user/user.module";
 import { AuthController } from "./auth.controller";
 import { AuthService } from "./auth.service";
-import { refreshTokenStrategy } from "./strategies/refreshToken-strategy";
-import { accessTokenStrategy } from "./strategies/accessToken-strategy";
+import { refreshTokenStrategy } from "../common/strategies/refreshToken-strategy";
+import { accessTokenStrategy } from "../common/strategies/accessToken-strategy";
 import { JwtModule } from "@nestjs/jwt";
 
 @Module({

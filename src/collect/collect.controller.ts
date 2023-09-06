@@ -11,7 +11,7 @@ import { UseGuards } from "@nestjs/common/decorators";
 import { CreateCollectDto } from "./dto/createCollect.dto";
 import { CollectService } from "./collect.service";
 import { Collect } from "./schemas/collect.schema";
-import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guards";
+import { JwtAuthGuard } from "src/common/guards/jwt-auth.guards";
 import { ApiTags } from "@nestjs/swagger";
 
 @ApiTags("Collect")

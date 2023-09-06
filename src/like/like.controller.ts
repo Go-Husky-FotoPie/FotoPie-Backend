@@ -1,5 +1,5 @@
 import { Controller, HttpStatus, Param, Post, Req } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guards';
+import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guards';
 import { CreateLikeDto } from './dto/create-like.dto';
 import { LikeService } from './like.service';
 import { HttpCode, UseGuards } from "@nestjs/common/decorators";

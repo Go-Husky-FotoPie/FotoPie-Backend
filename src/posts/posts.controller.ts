@@ -18,7 +18,7 @@ import { v4 as uuidv4 } from "uuid";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { UseInterceptors, UploadedFile } from "@nestjs/common";
 import { UseGuards } from "@nestjs/common/decorators";
-import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guards";
+import { JwtAuthGuard } from "src/common/guards/jwt-auth.guards";
 import * as sharp from "sharp";
 import { Query as ExpressQuery } from "express-serve-static-core";
 import { ApiTags } from "@nestjs/swagger";
