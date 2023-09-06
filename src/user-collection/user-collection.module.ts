@@ -8,14 +8,10 @@ import { UserCollectionService } from "./user-collection.service";
 @Module({
   imports: [
     MongooseModule.forFeature([
-      // { name: User.name, schema: UserSchema },
       { name: Collect.name, schema: CollectSchema },
     ]),
-    // UserModule
-
     MongooseModule.forFeature([
       { name: User.name, schema: UserSchema },
-      // { name: Post.name, schema: PostSchema },
     ]),
   ],
   providers: [UserCollectionService],

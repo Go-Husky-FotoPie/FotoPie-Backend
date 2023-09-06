@@ -2,18 +2,14 @@ import {
   Controller,
   Post,
   Body,
-  Get,
   FileTypeValidator,
-  HttpException,
   HttpCode,
   HttpStatus,
   MaxFileSizeValidator,
   ParseFilePipe,
-  Patch,
   Req,
   Res,
   UploadedFile,
-  UseGuards,
   UseInterceptors,
 } from "@nestjs/common";
 import { CreateImageService } from "./create-image.service";

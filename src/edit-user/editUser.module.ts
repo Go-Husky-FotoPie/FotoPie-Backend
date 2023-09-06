@@ -1,7 +1,6 @@
 import { EditUserController } from "./editUser.controller";
 import { EditUserService } from "./editUser.service";
 import { Module } from "@nestjs/common";
-
 import { MongooseModule } from "@nestjs/mongoose";
 import { User, UserSchema } from "src/user/schemas/user.schema";
 

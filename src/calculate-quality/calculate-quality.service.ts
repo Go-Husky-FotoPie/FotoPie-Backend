@@ -54,18 +54,6 @@ export class CalculateQualityService {
           }
         );
         return response.data;
-        // } else if (params.data) {
-        //   const formData = new FormData();
-        //   formData.append("data", params.data, "image.jpg");
-        //   const response = await this.httpService
-        //     .post("https://api.everypixel.com/v1/quality_ugc", formData, {
-        //       headers: {
-        //         ...headers,
-        //         ...formData.getHeaders(),
-        //       },
-        //     })
-        //     .toPromise();
-        //   return response.data;
       } else {
         throw new Error('Either "url" or "data" parameter is required.');
       }

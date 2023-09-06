@@ -1,7 +1,6 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
-import { Model, ObjectId } from "mongoose";
-
+import { Model } from "mongoose";
 import { User, UserDocument } from "src/user/schemas/user.schema";
 import { EditUserDto } from "./dto/edit-user.dto";
 import { EditUserAvatarDto } from "./dto/edit-userAvatar.dto";

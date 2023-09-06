@@ -16,8 +16,6 @@ export class NotificationService {
     private userModel: Model<UserDocument>,
     @InjectModel(Posts.name)
     private postModel: Model<PostDocument>,
-
-    // @InjectModel(Like.name)
     private readonly likeService: LikeService
   ) {}
 

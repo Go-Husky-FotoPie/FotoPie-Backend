@@ -50,14 +50,12 @@ export class CreateImageService {
         "512x512"
       );
 
-      //return image_url;
-
       const urls = {
         url_1: response.data.data[0].url,
         url_2: response.data.data[1].url,
       };
       return urls;
-      //return response.data.data;
+
     } catch (error) {
       console.error(error.response);
       throw new Error("Failed to create image variation.");

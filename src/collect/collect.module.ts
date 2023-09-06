@@ -1,6 +1,5 @@
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
-
 import { CollectService } from "./collect.service";
 import { CollectController } from "./collect.controller";
 import { Collect, CollectSchema } from "./schemas/collect.schema";

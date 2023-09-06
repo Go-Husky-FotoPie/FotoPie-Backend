@@ -19,13 +19,4 @@ export class AdminAuthController {
   adminLogin(@Body() adminLoginDto: AdminLoginDto): Promise<Token> {
     return this.adminAuthService.adminLogin(adminLoginDto);
   }
-
-
-
-  // @Post("logout")
-  // @HttpCode(HttpStatus.OK)
-  // logout(@Req() req: Request) {
-  //   const user = req.body;
-  //   return this.adminAuthService.logout(user["email"]);
-  // }
 }
