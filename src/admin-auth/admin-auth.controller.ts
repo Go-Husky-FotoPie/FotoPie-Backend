@@ -8,7 +8,9 @@ import {
 import { AdminLoginDto } from "./dto/admin-login.dto";
 import { Token } from "./types/tokens.type";
 import { AdminAuthService } from "./admin-auth.service";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("Admin Auth")
 @Controller("admin-auth")
 export class AdminAuthController {
   constructor(private readonly adminAuthService: AdminAuthService) {}

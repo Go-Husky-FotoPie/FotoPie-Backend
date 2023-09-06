@@ -2,7 +2,9 @@ import { Controller, Get, Param } from "@nestjs/common";
 import { UserCollectionService } from "./user-collection.service";
 import { Query } from "@nestjs/common/decorators";
 import { Query as ExpressQuery } from "express-serve-static-core";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("User Collect")
 @Controller("user-collect")
 export class UserCollection {
   constructor(private userCollectionService: UserCollectionService) {}

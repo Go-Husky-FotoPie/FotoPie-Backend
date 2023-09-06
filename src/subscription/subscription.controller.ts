@@ -15,7 +15,9 @@ import { JwtAuthGuard } from "../auth/guards/jwt-auth.guards";
 import { UseGuards } from "@nestjs/common/decorators";
 import mongoose from "mongoose";
 import { ConfigService } from "@nestjs/config";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("Subscription")
 @Controller("subscription")
 export class SubscriptionController {
   private readonly stripe: Stripe;

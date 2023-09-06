@@ -22,7 +22,9 @@ import { FileInterceptor } from "@nestjs/platform-express";
 import { Request, Response, Express } from "express";
 import * as multer from "multer";
 import * as sharp from "sharp";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("Create Image")
 @Controller("create-image")
 export class CreateImageController {
   constructor(private createImageService: CreateImageService) {}

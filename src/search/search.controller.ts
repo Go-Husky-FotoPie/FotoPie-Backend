@@ -3,7 +3,9 @@ import { SearchService } from './search.service'
 import { Query } from "@nestjs/common/decorators";
 import { Query as ExpressQuery } from "express-serve-static-core";
 import { Controller, Get, Param } from "@nestjs/common";
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags("Search")
 @Controller('search')
 export class SearchController {
     constructor(private SearchService: SearchService) { }

@@ -9,11 +9,6 @@ import {
   Body,
   Query,
   Patch,
-  Param,
-  Delete,
-  HttpException,
-  NotFoundException,
-  StreamableFile,
 } from "@nestjs/common";
 import { Req, Res } from "@nestjs/common";
 import { PostDTO } from "./dto/post.dto";
@@ -26,9 +21,9 @@ import { UseGuards } from "@nestjs/common/decorators";
 import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guards";
 import * as sharp from "sharp";
 import { Query as ExpressQuery } from "express-serve-static-core";
+import { ApiTags } from "@nestjs/swagger";
 
-// var path = require('path')
-
+@ApiTags("Posts")
 @Controller("posts")
 export class PostsController {
   constructor(

@@ -5,7 +5,9 @@ import {
   Param,
 } from "@nestjs/common";
 import { UserPostService } from "./user-post.service";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("Profile")
 @Controller("profile")
 export class UserPost {
   constructor(private userPostService: UserPostService) {}

@@ -6,27 +6,19 @@ import {
   Patch,
   Param,
   Delete,
-  UseGuards,
-  Req,
   Res,
   HttpException,
 } from "@nestjs/common";
 import { UserService } from "./user.service";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
-import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guards";
-import { Request, Response } from "express";
+import { Response } from "express";
 import { User } from "./schemas/user.schema";
-
 import { HttpStatus } from "@nestjs/common/enums";
-import { JwtService } from "@nestjs/jwt";
 import { ConfirmEmailDto } from "./dto/confirmEmail.dto";
-import { ObjectId } from "mongoose";
-import { FileInterceptor } from "@nestjs/platform-express";
-import { UseInterceptors, UploadedFile } from "@nestjs/common";
-import { diskStorage } from "multer";
-import { Observable } from "rxjs";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("User")
 @Controller("user")
 export class UserController {
   constructor(private readonly userService: UserService) {}
@@ -81,20 +73,6 @@ export class UserController {
   remove(@Param("id") id: string) {
     return this.userService.remove(+id);
   }
-
-  // @UseGuards(JwtAuthGuard)
-  // @Get("me")
-  // async me(@Req() req: Request, @Res() res: Response) {
-  //   const userEmail = req.user["email"];
-  //   const loginUser = await this.userService.findByEmail(userEmail);
-  //   return res.status(HttpStatus.OK).json({
-  //     message: "success",
-  //     data: {
-  //       firstName: loginUser.firstName,
-  //       lastName: loginUser.lastName,
-  //     },
-  //   });
-  // }
 
   // send email
   @Post("/create")

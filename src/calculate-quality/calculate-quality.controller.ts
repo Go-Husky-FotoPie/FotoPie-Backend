@@ -2,7 +2,9 @@ import { Controller, Get,Body } from "@nestjs/common";
 import { CalculateQualityService } from "./calculate-quality.service";
 import { Query } from "@nestjs/common/decorators";
 import { Query as ExpressQuery } from "express-serve-static-core";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("Calculate Quality")
 @Controller("everypixel")
 export class CalculateQualityController {
   constructor(private readonly calculateQualityService: CalculateQualityService) {}

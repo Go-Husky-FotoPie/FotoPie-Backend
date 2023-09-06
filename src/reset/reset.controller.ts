@@ -1,7 +1,9 @@
 import { Controller, Post, Body, HttpCode, HttpStatus } from "@nestjs/common";
 import { ResetService } from "./reset.service";
 import { ResetRequestDto } from "./dto/reset-request.dto";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("Reset")
 @Controller("reset")
 export class ResetController {
   constructor(private resetService: ResetService) {}

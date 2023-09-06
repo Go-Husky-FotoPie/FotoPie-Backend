@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import mongoose, { Model } from "mongoose";
-import { CreateLikeDto } from "./Dto/createLike.dto";
-import { UserLikeDto } from "./Dto/UserLike.dto";
+import { CreateLikeDto } from "./dto/create-like.dto";
+import { UserLikeDto } from "./dto/user-like.dto";
 import { Like, LikeDocument } from "./schemas/like.schema";
 import { Posts } from "../posts/schema/post.schema";
 

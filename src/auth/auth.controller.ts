@@ -12,7 +12,9 @@ import { Tokens } from "./types/tokens.type";
 import { Request } from "express";
 import { AuthService } from "./auth.service";
 import { JwtAuthGuard } from "./guards/jwt-auth.guards";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("Auth")
 @Controller("auth")
 export class AuthController {
   constructor(private readonly authService: AuthService) {}

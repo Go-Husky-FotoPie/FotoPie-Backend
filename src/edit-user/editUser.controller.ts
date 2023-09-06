@@ -20,12 +20,13 @@ import {
   UseInterceptors,
 } from "@nestjs/common";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
-
 import { EditUserService } from "./editUser.service";
 import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guards";
 import { EditUserDto } from "./dto/edit-user.dto";
 import { ConfigService } from "@nestjs/config";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("Edit User")
 @UseGuards(JwtAuthGuard)
 @Controller("editUser")
 export class EditUserController {

@@ -1,11 +1,12 @@
-import { Body, Controller, Get, HttpStatus, NotFoundException, Param, Post, Req } from '@nestjs/common';
+import { Controller, HttpStatus, Param, Post, Req } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guards';
-import { CreateLikeDto } from './Dto/createLike.dto';
+import { CreateLikeDto } from './dto/create-like.dto';
 import { LikeService } from './like.service';
-import { UserLikeDto } from './Dto/UserLike.dto';
 import { HttpCode, UseGuards } from "@nestjs/common/decorators";
 import { Like } from './schemas/like.schema'
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags("Like")
 @Controller('like')
 export class LikeController {
     constructor(private readonly likeService: LikeService) {}
