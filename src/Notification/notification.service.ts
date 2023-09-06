@@ -6,7 +6,6 @@ import { Posts, PostDocument } from "../posts/schema/post.schema";
 import { LikeService } from "src/like/like.service";
 import { Like, LikeDocument } from "../like/schemas/like.schema";
 import { Req } from "@nestjs/common";
-import { UpdateResult } from "aws-sdk/clients/workspaces";
 
 @Injectable()
 export class NotificationService {
