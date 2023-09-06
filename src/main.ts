@@ -1,9 +1,12 @@
 import "dotenv/config";
-import { NestFactory } from "@nestjs/core";
+import { HttpAdapterHost, NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { ValidationPipe } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import * as Sentry from '@sentry/node';
+import { SentryExceptionFilter } from "./common/helpers/sentry-exception-filter.helper";
+
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -30,6 +33,13 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
+
+  // Sentry
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
+   });
+   const { httpAdapter } = app.get(HttpAdapterHost);
+   app.useGlobalFilters(new SentryExceptionFilter(httpAdapter));
 
   //Listening port
   await app.listen(app.get(ConfigService).get("port"));
