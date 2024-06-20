@@ -1,5 +1,5 @@
-import { EditUserController } from "./editUser.controller";
-import { EditUserService } from "./editUser.service";
+import { EditUserController } from "./edit-user.controller";
+import { EditUserService } from "./edit-user.service";
 import { Module } from "@nestjs/common";
 
 import { MongooseModule } from "@nestjs/mongoose";

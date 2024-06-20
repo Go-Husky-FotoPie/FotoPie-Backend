@@ -21,7 +21,7 @@ import {
 } from "@nestjs/common";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
-import { EditUserService } from "./editUser.service";
+import { EditUserService } from "./edit-user.service";
 import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guards";
 import { EditUserDto } from "./dto/edit-user.dto";
 import { ConfigService } from "@nestjs/config";
