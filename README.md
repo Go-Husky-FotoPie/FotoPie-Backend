@@ -103,6 +103,6 @@ DevOps:
 - Jane
 - Hang Zhao
 - Shelton Chin
-- Ziqi Wang (Testing pipeline)
+- Ziqi Wang
 - Shuting Xu
 - Charles Cheng
